@@ -1,1 +1,3 @@
-See Report.pdf or RMarkdown.pdf for details about this project
+For my SDS 384 course project at UT Austin in 2015, I implemented a Markov Chain Monte Carlo simulation on NBA basketball data. Before performing a Bayesian regression, I tried to determine which variables (such as STL, AST, REB, etc) best predict wins (Winpct) by implementing the Best Subset method and Forward Step methods on a linear regression. Then, I used Jags to run the MCMC and made sure it was valid by checking the history plots and autocorrelation plots
+
+The completed report is the file "Report.pdf" and "RMarkdown.pdf". I also completed analyses using Principal Component Analysis, Ridge regression, and Lasso regression. They are in the files "PCA.r" and "RidgeLasso.r"
