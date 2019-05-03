@@ -1,0 +1,20 @@
+model <- function() { 
+  # Likelihood 
+  for (i in 1:n) #try 2 observations
+  {
+    y[i] <- b.0 + b.X3Ppct*X3Ppct[i] + b.OffRtg*OffRtg[i] + b.DefRtg*DefRtg[i] +
+	     b.Tspct*Tspct[i] + b.STL*STL[i] + b.ASTpTO*ASTpTO[i]
+  }
+	  
+  #priors
+  #non-informative prior, almost flat dist
+  #because variance 1/0.0001 = 100^2
+  #dnorm(mu, 1/sigma^2)
+  b.0 ~ dnorm (0, .0001)   
+  b.X3Ppct ~ dnorm(0, .0001) 
+  b.OffRtg ~ dnorm (0, .0001)
+  b.DefRtg ~ dnorm (0, .0001)
+  b.Tspct ~ dnorm (0, .0001)
+  b.STL ~ dnorm (0, .0001)
+  b.ASTpTO ~ dnorm (0, .0001)
+}

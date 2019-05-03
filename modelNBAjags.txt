@@ -1,0 +1,31 @@
+model { 
+  # Likelihood 
+  for (i in 1:n) #try 2 observations
+  {
+    #mu[i] <- b.0 + b.TORatio*TORatio[i] + b.OppToRatio*OppToRatio[i] + #b.Tspct*Tspct[i] + b.OppeFGpct*OppeFGpct[i] +b.OppFTARate*OppFTARate[i] #+b.PFD*PFD[i]
+
+  mu[i] <- b.0 + b.X2Ppct*X2Ppct[i] + b.TORatio*TORatio[i] + b.ORBpct*ORBpct[i] + b.FtpFGA*FtpFGA[i] + b.OppTOVpct*OppTOVpct[i] + b.Opp3Ppct
+*Opp3Ppct[i] + b.Opp2Ppct*Opp2Ppct[i]
+	y[i] ~ dnorm(mu[i], tau)
+  }
+	  
+  #priors
+  #non-informative prior, almost flat dist
+  #because variance 1/0.0001 = 100^2
+  #dnorm(mu, 1/sigma^2)
+  tau ~ dgamma(.0001, .0001)
+  #sigma ~ 1/sqrt(tau)
+  b.0 ~ dnorm (0, .0001)   
+  #b.OppToRatio ~ dnorm(0, .0001) 
+  b.X2Ppct ~ dnorm (0, .0001)
+  b.TORatio ~ dnorm (0, .0001)
+ #b.Tspct ~ dnorm (0, .0001)
+  #b.PFD ~ dnorm (0, .0001)
+  #b.OppeFGpct ~ dnorm (0, .0001)
+  #b.OppFTARate ~ dnorm (0, .0001)
+  b.ORBpct ~ dnorm (0, .0001)
+  b.FtpFGA ~ dnorm (0, .0001)
+  b.OppTOVpct ~ dnorm (0, .0001)
+  b.Opp3Ppct ~ dnorm (0, .0001)
+  b.Opp2Ppct ~ dnorm (0, .0001)
+}
